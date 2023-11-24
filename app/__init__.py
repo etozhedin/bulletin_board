@@ -5,7 +5,7 @@ from flask_login import LoginManager
 app = Flask(__name__)
 
 app.config['SECRET_KEY']='secret_key'
-app.config['SQLALCHEMY_DB']='sqlite:///db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://user:password@localhost:5432/bulletinboard_db'
 
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)

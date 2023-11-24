@@ -1,0 +1,22 @@
+version: '3.8'
+services: 
+  myApi: 
+    image: github.com/etozhedin/bulletin_board
+    container_name: board_api
+    ports:
+      - 8001:8000
+    restart: always 
+    environment: 
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=YourDBName
+      - DB_USER=YourDBUser
+      - DB_PASSWORD=YourDBPassword
+  db: 
+    image: postgres 
+    container_name: board_postgres 
+    restart: always 
+    environment: 
+      POSTGRES_USER: YourDBUser
+      POSTGRES_PASSWORD: YourDBPassword
+      POSTGRES_DB: YourDBName

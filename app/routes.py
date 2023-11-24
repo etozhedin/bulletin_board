@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from . import app, db
+from . import app
 from .models import User, Post, Comment
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -14,7 +15,7 @@ def get_post(post_id):
     post = Post.query.get_or_404(post_id)
     return jsonify({"id": post.id, "title": post.title, "content": post.content})
 
-@app.route("/posts/<int:post_id", methods=["DELETE"])
+@app.route("/posts/<int:post_id>", methods=["DELETE"])
 def delete_post(post_id):
     post = Post.query.get_or_404(post_id)
     db.session.delete(post)
