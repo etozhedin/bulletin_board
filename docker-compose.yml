@@ -12,11 +12,15 @@ services:
       - DB_NAME=YourDBName
       - DB_USER=YourDBUser
       - DB_PASSWORD=YourDBPassword
+    depends_on:
+      - db
   db: 
     image: postgres 
     container_name: board_postgres 
     restart: always 
+    ports:
+      - 5432:5432
     environment: 
-      POSTGRES_USER: YourDBUser
-      POSTGRES_PASSWORD: YourDBPassword
-      POSTGRES_DB: YourDBName
+      POSTGRES_USER: usr
+      POSTGRES_PASSWORD: pw 
+      POSTGRES_DB: db

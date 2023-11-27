@@ -6,9 +6,9 @@ from flask_migrate import Migrate
 app = Flask(__name__)
 
 app.config['SECRET_KEY']='secret_key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://user:password@localhost:5432/bulletinboard_db'
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://usr:pw@db:5432/db'
 db = SQLAlchemy(app)
+
 login_manager = LoginManager(app)
 migrate = Migrate(app, db)
 
